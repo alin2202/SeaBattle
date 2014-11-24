@@ -1,0 +1,148 @@
+Battle Ship or Sea Battle Game.
+
+//presentation link to be entered here
+
+A:
+Game description:
+The game is a simplified version of the original Battle Ship game:
+(http://en.wikipedia.org/wiki/Battleship_%28game%29).
+User is playing against the computer (1 user game).
+
+Game overview:
+Computer places random ships in random places on the board,
+user is trying to guess where these ships are and destroy them with limited amount of shots.
+Game ends in two cases:
+- user has used all the sots, but there are still alive ships on the field
+- user destroyed all the ships that were on the field
+
+Implementation:
+Game will be implemented with two main classes:
+- SeaBattle (for the main logic of the game)
+- FieldCell for filed cells objects
+- //// third one SeaField ???
+
+
+B:
+1. Game starts with welcome message and draw Sea battle with ships placed:
+"Welcome to sea Battle! Here is your field"
+"You have 10 shots to destroy all enemies' ships"
+
+	1	2	3	4	5
+A	~	~	~	~	~
+B	~	~	~	~	~
+C	~	~	~	~	~
+D	~	~	~	~	~
+E	~	~	~	~	~
+
+"You have 10 shots left"
+"Please enter your shot coordinates: "
+
+....
+
+// user inputs "B2"
+
+....
+
+Congrats! You hit the ship!
+
+	1	2	3	4	5
+A	~	~	~	~	~
+B	~	*	~	~	~
+C	~	~	~	~	~
+D	~	~	~	~	~
+E	~	~	~	~	~
+
+"You have 9 shots left"
+"Please enter your shot coordinates: "
+
+....
+
+// user inputs "B1"
+
+....
+
+Congrats! You hit the ship!
+
+	1	2	3	4	5
+A	~	~	~	~	~
+B	*	*	~	~	~
+C	~	~	~	~	~
+D	~	~	~	~	~
+E	~	~	~	~	~
+
+"You have 8 shots left"
+"Please enter your shot coordinates: "
+
+....
+
+// user inputs "B3"
+
+....
+
+Sorry, you have missed. You shot was in water...
+
+	1	2	3	4	5
+A	~	~	~	~	~
+B	*	*	o	~	~
+C	~	~	~	~	~
+D	~	~	~	~	~
+E	~	~	~	~	~
+
+"You have 7 shots left"
+"Please enter your shot coordinates: "
+
+....
+
+// continue until user uses all hits or shots all ships
+
+....
+
+// case 1: user used all shots, but didn't hit all ships:
+
+"Sorry, you have used all your shots, but your enemy still have alive ships:"
+
+	1	2	3	4	5
+A	~	~	~	~	x
+B	*	*	o	~	~
+C	~	~	~	~	~
+D	~	x	x	x	~
+E	~	~	~	~	~
+
+What would you like to do? 
+ 1. Play Guess or Sink 
+ 2. Play Memory Match
+ 3. Play Sea Battle
+ q. Quit 
+Enter your selection
+
+q
+
+Thanks for playing!
+Your score is 0 out of 1.
+GoodBye!
+
+
+// case 2: user hit all ships:
+
+"Congrats! You won the game!"
+
+	1	2	3	4	5
+A	~	~	~	~	*
+B	*	*	o	~	~
+C	~	~	~	o	~
+D	~	*	*	*	~
+E	0	~	~	~	~
+
+
+What would you like to do? 
+ 1. Play Guess or Sink 
+ 2. Play Memory Match
+ 3. Play Sea Battle
+ q. Quit 
+Enter your selection
+
+q
+
+Thanks for playing!
+Your score is 1 out of 1.
+GoodBye!

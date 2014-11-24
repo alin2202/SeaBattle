@@ -1,0 +1,18 @@
+/bin/
+#ignore all .classpath files
+*.classpath
+
+#ignore all .class files
+*.class
+
+#ignore bin directory
+bin/
+
+#ignore files endinf in ~
+*~
+
+#ignore metadata files
+.metadata
+
+#ignore project files
+.settings
