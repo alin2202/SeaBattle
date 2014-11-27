@@ -19,7 +19,14 @@ Implementation:
 Game will be implemented with two main classes:
 - SeaBattle (for the main logic of the game)
 - FieldCell for filed cells objects
-- //// third one SeaField ???
+- Ships (optional) - class that would generate random ships
+
+// game unique features
+* Board will be 10 x 10 size with letters & numbers coordinates
+* Ships are going to be randomly generated and placed on the board horisontally or vertically:
+n number of ships with 1-5 cells size
+* After user hits the ship it will be represented with "+" characters instead of "*"
+ex: "* *   "  turns into "+ + +" when user kills the 3 cell ship
 
 
 B:
