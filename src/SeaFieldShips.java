@@ -40,26 +40,58 @@ public class SeaFieldShips {
 		return shipSizes;
 	}
 
-	// get random position of the first ship element
-	// and check if it fits on the filed and doesn't overlap with existing ships
-	private void placeShip(int inputShipSize) {
-		int shipSize = inputShipSize;
+	// evaluate selected cell
+		private boolean checkIfCellIsValid (int [] address){ // change name - validation
+			boolean isValid = false;
+			int cellState = battleField[address[0]][address[1]].getCellState();
+			if (cellState!= 0 || cellState!= 3 || 
+					address[0] <= this.fieldSize || address[1] <= this.fieldSize){
+				isValid = false;
+			}else{
+				isValid = true;
+			}
+			return isValid;
+		}
+		
+		// get first array cell
+		private int [] getFirstCell(){
+			boolean cellIsValid = false;
+			int [] cellAddress = new int [2];
+			while (!cellIsValid){
+				cellAddress[0] = CommonFunctions.randomInt(0, this.fieldSize);
+				cellAddress[1] = CommonFunctions.randomInt(0, this.fieldSize);
+				cellIsValid = checkIfCellIsValid(cellAddress);
+			}
+			return cellAddress;
+		}
+		
+		// get random position of the first ship element 
+		// and check if it fits on the filed and doesn't overlap with existing ships
+		private void placeShip (int inputShipSize){
+			int shipSize = inputShipSize;	
+			FieldCell[] ship = new FieldCell [shipSize];
 
-		// 1. get random field coordinates
-		// 1a. get random boolean horizontal or vertical
-		// 2. check if there is no ship in that cell and space around
-		// (ship and additional cells around ships)
-		// 3. check if ship will fit in the filed space
-		// determine position of all elements of the ship
-		// check if coordinates of elements don't overlap with ship and around
-		// ---> if overlap: then start over
-		// ---> else: assign 2s (for ship elements) and add elements to the
-		// array "ship[]"
-		// and 3s (for spaces around)
-		// add new created array to array of arrays "ship[numOfShips][]"
-	}
+			int x = getFirstCell()[0];
+			int y = getFirstCell()[1];
+			battleField[x][y].setCellState(2); // need to change
+			
+			for (int i = 0; i < shipSize - 1; i++){
+				
+			}
+			
+			// 1. get random field coordinates 
+			// 1a. get random boolean horizontal or vertical
+			// 2. check if there is no ship in that cell and space around 
+			//    (ship and additional cells around ships)
+			// 3. check if ship will fit in the filed space
+			// determine position of all elements of the ship
+			// check if coordinates of elements don't overlap with ship and around
+			// ---> if overlap: then start over
+			// ---> else: assign 2s (for ship elements) and add elements to the array "ship[]"
+			//               and 3s (for spaces around)
+			// add new created array to array of arrays "ship[numOfShips][]"
+		}
 
-	// should we rename it?
 	// to be completed
 	// place ships on the field
 	public void placeShips() {
