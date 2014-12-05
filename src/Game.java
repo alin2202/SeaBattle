@@ -12,7 +12,9 @@ public class Game {
 		System.out.println("Welcome to the Game!");
 		while (true) {
 			System.out.println("\nWhat would you like to do? "
-					+ "\n 1. Play Guess or Sink " + "\n 2. Play Memory Match"
+					+ "\n 1. Play Guess or Sink " 
+					+ "\n 2. Play Memory Match"
+					+ "\n 3. Play Battle Ship"
 					+ "\n q. Quit " + "\nEnter your selection");
 
 			String userInput = keyboard.next();
@@ -31,6 +33,12 @@ public class Game {
 				memoryGame.play();
 				numberOfGames++;
 				if (memoryGame.getWinSattus())
+					score++;
+			} else if (choice == '3') {
+				BattleShip battleShipGame = new BattleShip();
+				battleShipGame.play();
+				numberOfGames++;
+				if (battleShipGame.getWinSattus())
 					score++;
 			} else {
 				if (choice == 'q') {
