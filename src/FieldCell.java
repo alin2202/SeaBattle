@@ -17,7 +17,8 @@ public class FieldCell {
 		this.cellState = cellState;
 	}
 
-	// return string representation for the card // We need var with ~ for shipCell
+	// return string representation for the card
+	// replace with switch?
 	public String toString(){
 		if (cellState == Constants.emptyCell){
 			return "~";
