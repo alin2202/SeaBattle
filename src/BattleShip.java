@@ -15,9 +15,21 @@ public class BattleShip {
 	public void play (){
 		
 		SeaFieldShips battleShipGame = new SeaFieldShips(10);//debug
-		battleShipGame.placeShips(); //debug
+//		battleShipGame.placeShips(); //debug
+//		
+//		battleShipGame.printBoard();//debug
 		
-		battleShipGame.printBoard();//debug
+		//debug
+		SeaFieldShips seaFiledShips = new SeaFieldShips(10);
+		int[] firstCell = {0,0};
+		int fieldSize = 3;
+		int [][] arrayTest = seaFiledShips.createShipCoordinates(firstCell, fieldSize, false);
+		for (int i = 0; i < fieldSize; i++) {
+			for (int a = 0; a < 2; a++) {
+				System.out.println(arrayTest[i][a]);
+			}
+		}
+		// end of debug
 		
 		// start game:	
 		// for loop starts with number of given shots:

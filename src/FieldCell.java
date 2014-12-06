@@ -2,15 +2,6 @@ public class FieldCell {
 	
 	// class variables
 	private int cellState;
-	
-	// cell states constants
-	private int emptyCell = 0;
-	private int shipCell = 2;
-	private int shotMissed = -1;
-	private int shotAimed = 1;
-	private int reservedCell = 3;
-	private int reveal = 4;
-	private int sunkShip = 5;
 
 	// class constructor
 	public FieldCell(){
@@ -28,19 +19,19 @@ public class FieldCell {
 
 	// return string representation for the card // We need var with ~ for shipCell
 	public String toString(){
-		if (cellState == emptyCell){
+		if (cellState == Constants.emptyCell){
 			return "~";
-		}else if (cellState == shotMissed){
+		}else if (cellState == Constants.shotMissed){
 			return "o";
-		}else if (cellState == shotAimed){
+		}else if (cellState == Constants.shotAimed){
 			return "*";
-		}else if (cellState == reservedCell){
+		}else if (cellState == Constants.reservedCell){
 			return "~";
-		}else if (cellState == reveal){
+		}else if (cellState == Constants.reveal){
 			return "[]";
-		}else if (cellState == shipCell){
+		}else if (cellState == Constants.shipCell){
 			return "~";
-		}else if (cellState == sunkShip){
+		}else if (cellState == Constants.sunkShip){
 			return "X";
 		}else{
 		return "?";
