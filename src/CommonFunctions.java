@@ -9,6 +9,18 @@ public class CommonFunctions {
 		return randomNumber;
 	}
 
+	// random boolean
+	public static boolean randomBoolean (){
+		boolean randomBoolean;
+		int number = randomInt(0, 1);
+		if (number==0){
+			randomBoolean = false;
+		}else{
+			randomBoolean = true;
+		}
+		return randomBoolean;
+	}
+	
 	//function checking if element is integer
 	public static boolean isInteger(String s) {
 		  try { 
