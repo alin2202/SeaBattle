@@ -41,38 +41,27 @@ public class SeaFieldShips {
 	}
 
 	// evaluate selected cell
-	private boolean checkIfCellIsValid(int[] address) { 	
-		boolean isValid = false;
-		if (address[0] < this.fieldSize || address[1] < this.fieldSize) {
-			int cellState = battleField[address[0]][address[1]].getCellState();
-			if (cellState == Constants.emptyCell) {
-				isValid = true;
-			} else {
-				isValid = false;
-			}
-		} else {
-			isValid = false;
-		}		
-		return isValid;
-	}
-
-	// get first array cell
-	private int[] getFirstCell() {
+	private boolean checkIfCellIsEmpty(int[] address) { 
 		boolean cellIsValid = false;
-		int[] cellAddress = new int[2];
-		while (!cellIsValid) {
-//			cellAddress[0] = CommonFunctions.randomInt(0, this.fieldSize - 1);
-//			cellAddress[1] = CommonFunctions.randomInt(0, this.fieldSize - 1);
-			cellAddress[0] = 9;
-			cellAddress[1] = 9;
-			cellIsValid = checkIfCellIsValid(cellAddress);
-		}
-		return cellAddress;
+		try{
+			if (address[0] < this.fieldSize || address[1] < this.fieldSize){	
+				int cellState = battleField[address[0]][address[1]].getCellState();
+				if (cellState == Constants.emptyCell){
+					cellIsValid = true;
+				}
+			}
+		}catch(Exception e){
+			cellIsValid = false;
+		}		
+		return cellIsValid;
 	}
 
-	public int[][] createShipCoordinates(int[] firstCell, int shipSize,
-			boolean isHorizontal) {
+
+	public int[][] createShipCoordinates(int shipSize, boolean isHorizontal) {
 		int[][] coordinates = new int[shipSize][2];
+		int [] firstCell = new int [2];
+		firstCell[0] = CommonFunctions.randomInt(0, this.fieldSize - 1);
+		firstCell[1] = CommonFunctions.randomInt(0, this.fieldSize - 1);
 		coordinates[0][0] = firstCell[0];
 		coordinates[0][1] = firstCell[1];
 		if (isHorizontal == true) {
@@ -96,7 +85,7 @@ public class SeaFieldShips {
 			int[] current = new int[2];
 			current[0] = shipCoordinates[i][0];
 			current[1] = shipCoordinates[i][1];
-			if (checkIfCellIsValid(current)) {
+			if (checkIfCellIsEmpty(current)) {
 				i++;
 				continue;
 			} else {
@@ -110,23 +99,17 @@ public class SeaFieldShips {
 	// get random position of the first ship element
 	// and check if it fits on the filed and doesn't overlap with existing ships
 	public void placeShip(int inputShipSize) {
-		// random horizontal or vertical "isHozontal"
-//		boolean isVertical = true;
 		boolean isVertical = CommonFunctions.randomBoolean();
-		int[] firstCellCoordinates;
 		int[][] shipCoordinates;
 		// while loop starts
 		while (true){
-			// get first cell ()
-			firstCellCoordinates = getFirstCell();
-			// createShipCoordinates (firstCell, shipsize)
-			shipCoordinates = createShipCoordinates(firstCellCoordinates, inputShipSize, isVertical);
+			// createShipCoordinates
+			shipCoordinates = createShipCoordinates(inputShipSize, isVertical);
 			// validate ship coordinates ( )
-			// method changes class variable isShipValid to false if coordinates are invalid
-			boolean isShipValid = validateShipCoordinates(shipCoordinates);		
-			// isFullShipValid set to false
+			boolean isValid = validateShipCoordinates(shipCoordinates);		
+			// isShipValid false: exit
 			// isShip valid true: place ship
-			if (isShipValid){
+			if (isValid){
 				break;
 			}else{
 				continue;
@@ -156,13 +139,13 @@ public class SeaFieldShips {
 	// printing current board
 	public void printBoard() {
 		for (int i = 0; i < fieldSize; i++) {
-			System.out.printf("\t %-3s", i);
+			System.out.printf("\t %-1s", i);
 		}
 		System.out.println();
 		for (int row = 0; row < fieldSize; row++) {
 			System.out.print(row);
 			for (int col = 0; col < fieldSize; col++) {
-				System.out.printf("\t %-3s", battleField[row][col]);
+				System.out.printf("\t %-1s", battleField[row][col]);
 			}
 			System.out.println();
 		}
