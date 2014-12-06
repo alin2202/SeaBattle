@@ -7,35 +7,31 @@ public class SeaFieldShips {
 	private int[] sizes;
 	private int fieldSize;
 	private FieldCell[][] battleField;
-	private int[] shipsArray;
+	private int[][] shipsArray;
 
 	public SeaFieldShips(int fieldSize) {
-		this.numOfhips = setNumOfShips(fieldSize); // need to change to be
-													// dependent on field size
-		this.sizes = setShipSizes(numOfhips);
 		this.fieldSize = fieldSize;
+		this.numOfhips = setNumOfShips(fieldSize); 
+		this.sizes = setShipSizes(numOfhips);
+		this.shipsArray = new int[numOfhips][];		
 		this.battleField = new FieldCell[fieldSize][fieldSize];
-		this.shipsArray = new int[numOfhips];
+
 	}
 
 	// method that will determine how many
 	// and what size ships to draw
 	private int setNumOfShips(int fieldSize) {
-		int numberOfShips = 3; // NEED TO CHANGE AFTER
-		// set number of ships based on field size
-		// ex. field size = 10, num of ships = 5
-		// need to figure out algorithm for determining this number
+		int numberOfShips = (int) (fieldSize/1.5);
 		return numberOfShips; // generated number
 	}
 
 	// determine ship sizes
 	private int[] setShipSizes(int numOfShips) {
 		int[] shipSizes = new int[numOfShips];
-		// generate ship sizes integers
-		// and assign to array positions
-		for (int i = 0; i < numOfShips; i++) {
-			shipSizes[i] = numOfShips;
-			numOfShips = numOfShips - 1;
+		int shipSize = numOfShips;
+		for (int i = 0; i < numOfShips; i++) {			
+			shipSizes[i] = shipSize;
+			shipSize = shipSize - 1;
 		}
 		return shipSizes;
 	}
@@ -57,14 +53,14 @@ public class SeaFieldShips {
 	}
 
 
-	public int[][] createShipCoordinates(int shipSize, boolean isHorizontal) {
+	private int[][] createShipCoordinates(int shipSize, boolean isVertical) {
 		int[][] coordinates = new int[shipSize][2];
 		int [] firstCell = new int [2];
 		firstCell[0] = CommonFunctions.randomInt(0, this.fieldSize - 1);
 		firstCell[1] = CommonFunctions.randomInt(0, this.fieldSize - 1);
 		coordinates[0][0] = firstCell[0];
 		coordinates[0][1] = firstCell[1];
-		if (isHorizontal == true) {
+		if (isVertical == true) {
 			for (int i = 1; i < shipSize; i++) {
 				coordinates[i][0] = firstCell[0] + i;
 				coordinates[i][1] = firstCell[1];
@@ -95,22 +91,74 @@ public class SeaFieldShips {
 		}
 		return isShipValid;
 	}
+	
+	public void setReservedCells(int [][] shipAddress, boolean isVertical){
+		int numOfCells = shipAddress.length;
+		try{
+			if (numOfCells==1){
+				int addr [] = {shipAddress[0][0],shipAddress[0][1]};
+				battleField[addr[0]+1][addr[0]].setCellState(Constants.reservedCell); 
+				battleField[addr[0]-1][addr[0]].setCellState(Constants.reservedCell); 
+				battleField[addr[0]][addr[0]+1].setCellState(Constants.reservedCell);
+				battleField[addr[0]][addr[0]-1].setCellState(Constants.reservedCell);				
+				
+//				battleField[shipAddress[0][0]][shipAddress[0][1]].setCellState(Constants.reservedCell); // debug
+			}else if (isVertical){
+				// for vertical:
+				// first element:
+				int addrFirst [] = {shipAddress[0][0],shipAddress[0][1]};
+				battleField[addrFirst[0]][addrFirst[0]-1].setCellState(Constants.reservedCell); 
+				battleField[addrFirst[0]+1][addrFirst[0]+1].setCellState(Constants.reservedCell);
+				battleField[addrFirst[0]-1][addrFirst[0]-1].setCellState(Constants.reservedCell);
+				// last element:
+				int addrLast [] = {shipAddress[numOfCells - 1][0],shipAddress[numOfCells - 1][1]};
+				battleField[addrLast[0]][addrLast[0]+1].setCellState(Constants.reservedCell); 
+				battleField[addrLast[0]+1][addrLast[0]].setCellState(Constants.reservedCell);
+				battleField[addrLast[0]-1][addrLast[0]].setCellState(Constants.reservedCell);
+				// remaining elements:
+				for (int i = 1; i < numOfCells - 1; i++){
+					int addr [] = {shipAddress[i][0],shipAddress[i][1]};
+					battleField[addr[0]+1][addr[0]].setCellState(Constants.reservedCell);
+					battleField[addr[0]-1][addr[0]].setCellState(Constants.reservedCell);
+				}
+			}else{
+				// for horizontal:
+				// first element:
+				int addrFirst [] = {shipAddress[0][0],shipAddress[0][1]};
+				battleField[addrFirst[0]-1][addrFirst[0]].setCellState(Constants.reservedCell); 
+				battleField[addrFirst[0]][addrFirst[0]+1].setCellState(Constants.reservedCell);
+				battleField[addrFirst[0]][addrFirst[0]-1].setCellState(Constants.reservedCell);
+				// last element:
+				int addrLast [] = {shipAddress[numOfCells - 1][0],shipAddress[numOfCells - 1][1]};
+				battleField[addrLast[0]+1][addrLast[0]].setCellState(Constants.reservedCell); 
+				battleField[addrLast[0]][addrLast[0]+1].setCellState(Constants.reservedCell);
+				battleField[addrLast[0]][addrLast[0]-1].setCellState(Constants.reservedCell);
+				// remaining elements:
+				for (int i = 1; i < numOfCells - 1; i++){
+					int addr [] = {shipAddress[i][0],shipAddress[i][1]};
+					battleField[addr[0]][addr[0]+1].setCellState(Constants.reservedCell);
+					battleField[addr[0]][addr[0]-1].setCellState(Constants.reservedCell);
+				}
+			}
+		}catch(Exception e){
+			System.out.println("Ooops... something went wrong."); // debug
+		}		
+	}
 
-	// get random position of the first ship element
-	// and check if it fits on the filed and doesn't overlap with existing ships
-	public void placeShip(int inputShipSize) {
+	// method for placing a single ship
+	private int [][] placeShip(int inputShipSize) {
 		boolean isVertical = CommonFunctions.randomBoolean();
 		int[][] shipCoordinates;
-		// while loop starts
+		boolean isValid;
 		while (true){
-			// createShipCoordinates
+			// get ship coordinates
 			shipCoordinates = createShipCoordinates(inputShipSize, isVertical);
-			// validate ship coordinates ( )
-			boolean isValid = validateShipCoordinates(shipCoordinates);		
-			// isShipValid false: exit
-			// isShip valid true: place ship
+			// check if coordinates cells are empty/valid
+			isValid = validateShipCoordinates(shipCoordinates);
+			// if valid, exit loop
 			if (isValid){
 				break;
+			// if not, continue searching for new ship coordinates
 			}else{
 				continue;
 			}		
@@ -120,6 +168,10 @@ public class SeaFieldShips {
 				battleField[shipCoordinates[i][0]][shipCoordinates[i][1]].setCellState(Constants.reveal);
 				// to be completed : place reserved cells
 		}
+		
+//		setReservedCells(shipCoordinates, isVertical);
+		
+		return shipCoordinates;
 	}
 
 	// place ships on the field
@@ -130,10 +182,10 @@ public class SeaFieldShips {
 				battleField[i][a] = new FieldCell();
 			}
 		}
-		
-		
-		// Take a ship size from shipSizes array (for loop starts)
-		// for each ship call "placeShip()" element
+		for (int i = 0; i < this.sizes.length; i++){
+			placeShip(this.sizes[i]);
+//			shipsArray[i][] = placeShip(this.sizes[i]);
+		}
 	}
 
 	// printing current board
@@ -159,7 +211,5 @@ public class SeaFieldShips {
 					battleField[i][a].setCellState(Constants.reveal);
 			}
 		}
-
 	}
-
 }

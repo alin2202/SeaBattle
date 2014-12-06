@@ -3,22 +3,18 @@ public class BattleShip {
 	
 	private int MAXFIELDSIZE = 12;
 	private int MINFIELDSIZE = 5;
-	private int fieldSize = 10;
+	private int fieldSize;
 	private boolean winStatus = false;
+	SeaFieldShips battleShipGame;
 	
 	public BattleShip (){
 		fieldSize = CommonFunctions.randomInt(MINFIELDSIZE, MAXFIELDSIZE);
-		SeaFieldShips ships = new SeaFieldShips(fieldSize);
-		ships.placeShips();
+		battleShipGame = new SeaFieldShips(fieldSize);
+		battleShipGame.placeShips();
 	}
 
 	public void play (){
-		
-		SeaFieldShips battleShipGame = new SeaFieldShips(10);//debug
-		
-		
-		battleShipGame.placeShips(); //debug
-		battleShipGame.placeShip(4);
+//		battleShipGame.placeShip(4);
 		
 		battleShipGame.printBoard();//debug
 		
