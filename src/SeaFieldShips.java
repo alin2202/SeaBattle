@@ -209,7 +209,8 @@ public class SeaFieldShips {
 		
 		for (int ship = 0; ship < this.shipsArray.length; ship++){
 			for (int cell = 0; cell < this.shipsArray[ship].length; cell++){
-				if(this.shipsArray[ship][cell].getCellState() == Constants.shotAimed){
+				if(this.shipsArray[ship][cell].getCellState() == Constants.shotAimed || 
+						this.shipsArray[ship][cell].getCellState() == Constants.sunkShip){
 					aimedCells++;
 				}
 			}

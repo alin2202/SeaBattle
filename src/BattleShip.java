@@ -2,8 +2,8 @@ import java.util.Scanner;
 
 public class BattleShip {
 
-	private int MAXFIELDSIZE = 3; //
-	private int MINFIELDSIZE = 2;  //
+	private int MAXFIELDSIZE = 15; //
+	private int MINFIELDSIZE = 5;  //
 	private int givenShots;
 	private int fieldSize;
 	private FieldCell[][] arrayOfShips;
@@ -39,7 +39,15 @@ public class BattleShip {
 			if (cellValue == Constants.shipCell) {
 				System.out.println("\nYou aimed!");
 				this.battleShipGame.battleField[addr[0]][addr[1]].setCellState(Constants.shotAimed);
+				this.battleShipGame.printBoard();
 				this.battleShipGame.revealSunkShips();
+				this.battleShipGame.printBoard();
+				if (battleShipGame.checkIfAllShipsSunk()){
+					System.out.println("\nCongratulations! You won the game.");
+					this.battleShipGame.printBoard();
+					this.winStatus = true;
+					return;
+				}
 			} else if (cellValue == Constants.emptyCell
 					|| cellValue == Constants.reservedCell) {
 				System.out.println("\nYour shot was in water.");
@@ -49,12 +57,6 @@ public class BattleShip {
 			} else {
 				System.out.println("\nYou already shot here...");
 			}
-//			if (battleShipGame.checkIfAllShipsSunk()){
-//				System.out.println("\nCongratulations! You won the game.");
-//				this.battleShipGame.printBoard();
-//				this.winStatus = true;
-//				break;
-//			}
 			System.out.println("shots left: " + remainingShots + "\n");
 			this.battleShipGame.printBoard();
 		}
