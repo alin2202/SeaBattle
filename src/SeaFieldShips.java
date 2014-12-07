@@ -4,30 +4,29 @@ public class SeaFieldShips {
 
 	// number of ships to draw
 	private int numOfhips;
-	// ship sizes : e.g. {4, 3, 2}
-	// 3 ships with 4, 3 and 2 cells accordingly
+	// array of ship sizes (ex.: 5, 5, 3, 2 - 4 ships wit sizes 5, 5, 3 & 2)
 	private int[] sizes;
+	// size of sea filed
 	private int fieldSize;
+	// array of FieldCells that will contain all sea field objects
 	public FieldCell[][] battleField;
+	// array of FiledCells that will contain placed ships
 	private FieldCell[][] shipsArray;
 
+	// class constructor
 	public SeaFieldShips(int fieldSize) {
 		this.fieldSize = fieldSize;
-		this.numOfhips = setNumOfShips(fieldSize); 
+		this.numOfhips = setNumOfShips(fieldSize);
 		this.sizes = setShipSizes(numOfhips);
-		this.shipsArray = new FieldCell[numOfhips][];		
+		this.shipsArray = new FieldCell[numOfhips][];
 		this.battleField = new FieldCell[fieldSize][fieldSize];
-
-	}
-	public SeaFieldShips() {
-		
 
 	}
 
 	// method that will determine how many
 	// and what size ships to draw
 	private int setNumOfShips(int fieldSize) {
-		int numberOfShips = (int) (fieldSize/1.5);
+		int numberOfShips = (int) (fieldSize / 1.5);
 		return numberOfShips; // generated number
 	}
 
@@ -35,7 +34,7 @@ public class SeaFieldShips {
 	private int[] setShipSizes(int numOfShips) {
 		int[] shipSizes = new int[numOfShips];
 		int shipSize = numOfShips;
-		for (int i = 0; i < numOfShips; i++) {			
+		for (int i = 0; i < numOfShips; i++) {
 			shipSizes[i] = shipSize;
 			shipSize = shipSize - 1;
 		}
@@ -43,25 +42,25 @@ public class SeaFieldShips {
 	}
 
 	// evaluate selected cell
-	private boolean checkIfCellIsEmpty(int[] address) { 
+	private boolean checkIfCellIsEmpty(int[] address) {
 		boolean cellIsValid = false;
-		try{
-			if (address[0] < this.fieldSize || address[1] < this.fieldSize){	
-				int cellState = battleField[address[0]][address[1]].getCellState();
-				if (cellState == Constants.emptyCell){
+		try {
+			if (address[0] < this.fieldSize || address[1] < this.fieldSize) {
+				int cellState = battleField[address[0]][address[1]]
+						.getCellState();
+				if (cellState == Constants.emptyCell) {
 					cellIsValid = true;
 				}
 			}
-		}catch(Exception e){
+		} catch (Exception e) {
 			cellIsValid = false;
-		}		
+		}
 		return cellIsValid;
 	}
 
-
 	private int[][] createShipCoordinates(int shipSize, boolean isVertical) {
 		int[][] coordinates = new int[shipSize][2];
-		int [] firstCell = new int [2];
+		int[] firstCell = new int[2];
 		firstCell[0] = CommonFunctions.randomInt(0, this.fieldSize - 1);
 		firstCell[1] = CommonFunctions.randomInt(0, this.fieldSize - 1);
 		coordinates[0][0] = firstCell[0];
@@ -97,52 +96,26 @@ public class SeaFieldShips {
 		}
 		return isShipValid;
 	}
-	
-	public void setReservedCells(int [][] shipAddress){
-		int numOfCells = shipAddress.length;
-		try{
-				for (int i = 0; i < numOfCells; i++){
-					int x = shipAddress[i][0];
-					int y = shipAddress[i][1];
-					int [][] cellsAround = {{x+1, y},{x-1, y},{x, y+1},{x, y-1}};
-					for (int el = 0; el < cellsAround.length; el++){
-						if (checkIfCellIsEmpty(cellsAround[el])){
-						int ax = cellsAround[el][0];
-						int ay = cellsAround[el][1];						
-						int cellState = battleField[ax][ay].getCellState();
-						if (cellState!= Constants.shipCell){
-							battleField[ax][ay].setCellState(Constants.reservedCell);
-//              			cellState = battleField[ax][ay].getCellState(); //debug statetment
-						}
-						}else{
-							continue;
-						}
-					}
-				}
-		}catch(Exception e){
-//			System.out.println("Ooops... something went wrong."); // debug
-		}		
-	}
 
 	// method for placing a single ship
-	private FieldCell [] placeShip(int inputShipSize) {
+	private FieldCell[] placeShip(int inputShipSize) {
 		boolean isVertical = CommonFunctions.randomBoolean();
 		FieldCell[] shipObjects = new FieldCell[inputShipSize];
-		int[][] shipCoordinates;		
+		int[][] shipCoordinates;
 		boolean isValid;
-		while (true){
+		while (true) {
 			// get ship coordinates
 			shipCoordinates = createShipCoordinates(inputShipSize, isVertical);
 			// check if coordinates cells are empty/valid
 			isValid = validateShipCoordinates(shipCoordinates);
 			// if valid, exit loop
-			if (isValid){
+			if (isValid) {
 				break;
-			// if not, continue searching for new ship coordinates
-			}else{
+				// if not, continue searching for new ship coordinates
+			} else {
 				continue;
-			}		
-		}	
+			}
+		}
 		// assign cell states to ship cells
 		for (int i = 0; i < shipCoordinates.length; i++) {
 			shipObjects[i] = battleField[shipCoordinates[i][0]][shipCoordinates[i][1]];
@@ -151,6 +124,33 @@ public class SeaFieldShips {
 		// reserve cells around the ship
 		setReservedCells(shipCoordinates);
 		return shipObjects;
+	}
+	
+	private void setReservedCells(int[][] shipAddress) {
+		int numOfCells = shipAddress.length;
+		try {
+			for (int i = 0; i < numOfCells; i++) {
+				int x = shipAddress[i][0];
+				int y = shipAddress[i][1];
+				int[][] cellsAround = { { x + 1, y }, { x - 1, y },
+						{ x, y + 1 }, { x, y - 1 } };
+				for (int el = 0; el < cellsAround.length; el++) {
+					if (checkIfCellIsEmpty(cellsAround[el])) {
+						int ax = cellsAround[el][0];
+						int ay = cellsAround[el][1];
+						int cellState = battleField[ax][ay].getCellState();
+						if (cellState != Constants.shipCell) {
+							battleField[ax][ay]
+									.setCellState(Constants.reservedCell);
+						}
+					} else {
+						continue;
+					}
+				}
+			}
+		} catch (Exception e) {
+			System.out.println("Ooops... something went wrong."); 
+		}
 	}
 
 	// place ships on the field
@@ -161,12 +161,67 @@ public class SeaFieldShips {
 				battleField[i][a] = new FieldCell();
 			}
 		}
-		for (int i = 0; i < this.sizes.length; i++){
-//			placeShip(this.sizes[i]);
+		for (int i = 0; i < this.sizes.length; i++) {
+			// placeShip(this.sizes[i]);
 			shipsArray[i] = placeShip(this.sizes[i]);
 		}
 	}
+	
+	// accessor method for array of ships
+	public FieldCell[][] getShipsArray() {
+		return this.shipsArray;
+	}
 
+	// count number of cells on the field that contain ships
+	public int getNumberOfShipCells(FieldCell[][] arrayOfShips) {
+		int number = 0;
+		for (int ship = 0; ship < arrayOfShips.length; ship++) {
+			for (int cell = 0; cell < arrayOfShips[ship].length; cell++) {
+				number++;
+			}
+		}
+		return number;
+	}
+	
+	
+	// need to create method for determining if ship has sunk
+	// shipsArray[][] (has all elements that have ship cells) {{filedcell1, fieldcell}{}{}}
+	public void revealSunkShips(){
+		for (int ship = 0; ship < this.shipsArray.length; ship++){
+			int numberOfSunkCells = 0;
+			for (int cell = 0; cell < this.shipsArray[ship].length; cell++){
+				if (this.shipsArray[ship][cell].getCellState() == Constants.shotAimed){
+					numberOfSunkCells++;
+				}
+			}
+			if (numberOfSunkCells == this.shipsArray[ship].length){
+				for (int cell = 0; cell < this.shipsArray[ship].length; cell++){
+					this.shipsArray[ship][cell].setCellState(Constants.sunkShip);
+				}
+			}
+		}
+	}
+	
+	public boolean checkIfAllShipsSunk(){
+		boolean allShipsSunk = false;
+		int aimedCells = 0;
+		int cellsTotal = getNumberOfShipCells(this.shipsArray);
+		
+		for (int ship = 0; ship < this.shipsArray.length; ship++){
+			for (int cell = 0; cell < this.shipsArray[ship].length; cell++){
+				if(this.shipsArray[ship][cell].getCellState() == Constants.shotAimed){
+					aimedCells++;
+				}
+			}
+		}
+		if (cellsTotal == aimedCells){
+			allShipsSunk = true;
+		}else{
+			allShipsSunk = false;
+		}
+		return allShipsSunk;
+	}
+	
 	// printing current board
 	public void printBoard() {
 		for (int i = 0; i < fieldSize; i++) {
@@ -191,84 +246,5 @@ public class SeaFieldShips {
 			}
 		}
 	}
-	
-	
-	
-	
-	// Method gets user input, validates it and returns array integers with coordinates
-		public int[] getUserInput() {
-			// creating scanner object and get user input 
-			Scanner input = new Scanner(System.in);
-			int[] userCoodrinates = null;
-			String inputtedText = input.nextLine();
-			BattleShip battleShip = new BattleShip();
-			int fieldSize = battleShip.getFieldSize() + 1;
-			// validate user input
-			while (true) {
-				int firstInt;
-				int secondInt;
-				try {
-					String[] coordinates = inputtedText.split(" ");
-					if (coordinates.length != 2) {
-						throw new Exception("\nWrong number of arguments.\n"
-								+ "Please enter two integers separated by white space:\n");
-					}
-
-					if (!CommonFunctions.isInteger(coordinates[0]) || 
-							!CommonFunctions.isInteger(coordinates[1])){
-						throw new Exception("\nWrong arguments.\n"
-								+ "Please enter integers only:\n");
-					}
-					
-					firstInt = Integer.parseInt(coordinates[0]);
-					secondInt = Integer.parseInt(coordinates[1]);
-
-					if (firstInt > fieldSize || secondInt > fieldSize) {
-						throw new Exception("\nYour coordinates exceed board size.\n"
-								+ "Please enter a valid position:\n");			
-					}
-					
-					if (firstInt == fieldSize) {
-						throw new Exception("\nYour coordinates exceed board size.\n"
-								+ "Please enter a valid position:\n");			
-					}
-					
-					if (secondInt == fieldSize) {
-						throw new Exception("\nYour coordinates exceed board size.\n"
-								+ "Please enter a valid position:\n");			
-					}
-					
-					if (firstInt < 0 || secondInt < 0) {
-						throw new Exception("\nCan't enter negative.\n"
-								+ "Please enter a valid position:\n");			
-					}
-					
-					
-				} catch (Exception e) {
-					System.out.println(e.getMessage());
-					inputtedText = input.nextLine();
-					continue;
-				}
-				// validation passed
-				// assign entered card position and exit while loop
-				userCoodrinates = new int[2];
-				userCoodrinates[0] = firstInt;
-				userCoodrinates[1] = secondInt;
-				break;
-			}
-			return userCoodrinates;
-		}
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }

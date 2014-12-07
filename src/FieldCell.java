@@ -31,7 +31,7 @@ public class FieldCell {
 		}else if (cellState == Constants.reveal){
 			return "[]";
 		}else if (cellState == Constants.shipCell){
-			return "~";
+			return "~s";
 		}else if (cellState == Constants.sunkShip){
 			return "X";
 		}else{
