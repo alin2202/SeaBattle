@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class SeaFieldShips {
 
 	// number of ships to draw
@@ -15,6 +17,10 @@ public class SeaFieldShips {
 		this.sizes = setShipSizes(numOfhips);
 		this.shipsArray = new FieldCell[numOfhips][];		
 		this.battleField = new FieldCell[fieldSize][fieldSize];
+
+	}
+	public SeaFieldShips() {
+		
 
 	}
 
@@ -185,4 +191,84 @@ public class SeaFieldShips {
 			}
 		}
 	}
+	
+	
+	
+	
+	// Method gets user input, validates it and returns array integers with coordinates
+		public int[] getUserInput() {
+			// creating scanner object and get user input 
+			Scanner input = new Scanner(System.in);
+			int[] userCoodrinates = null;
+			String inputtedText = input.nextLine();
+			BattleShip battleShip = new BattleShip();
+			int fieldSize = battleShip.getFieldSize() + 1;
+			// validate user input
+			while (true) {
+				int firstInt;
+				int secondInt;
+				try {
+					String[] coordinates = inputtedText.split(" ");
+					if (coordinates.length != 2) {
+						throw new Exception("\nWrong number of arguments.\n"
+								+ "Please enter two integers separated by white space:\n");
+					}
+
+					if (!CommonFunctions.isInteger(coordinates[0]) || 
+							!CommonFunctions.isInteger(coordinates[1])){
+						throw new Exception("\nWrong arguments.\n"
+								+ "Please enter integers only:\n");
+					}
+					
+					firstInt = Integer.parseInt(coordinates[0]);
+					secondInt = Integer.parseInt(coordinates[1]);
+
+					if (firstInt > fieldSize || secondInt > fieldSize) {
+						throw new Exception("\nYour coordinates exceed board size.\n"
+								+ "Please enter a valid position:\n");			
+					}
+					
+					if (firstInt == fieldSize) {
+						throw new Exception("\nYour coordinates exceed board size.\n"
+								+ "Please enter a valid position:\n");			
+					}
+					
+					if (secondInt == fieldSize) {
+						throw new Exception("\nYour coordinates exceed board size.\n"
+								+ "Please enter a valid position:\n");			
+					}
+					
+					if (firstInt < 0 || secondInt < 0) {
+						throw new Exception("\nCan't enter negative.\n"
+								+ "Please enter a valid position:\n");			
+					}
+					
+					
+				} catch (Exception e) {
+					System.out.println(e.getMessage());
+					inputtedText = input.nextLine();
+					continue;
+				}
+				// validation passed
+				// assign entered card position and exit while loop
+				userCoodrinates = new int[2];
+				userCoodrinates[0] = firstInt;
+				userCoodrinates[1] = secondInt;
+				break;
+			}
+			return userCoodrinates;
+		}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

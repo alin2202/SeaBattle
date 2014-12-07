@@ -13,18 +13,25 @@ public class BattleShip {
 		battleShipGame = new SeaFieldShips(fieldSize);
 		battleShipGame.placeShips();
 	}
+	
+	public int getFieldSize(){
+		return fieldSize;
+		
+	}
 
 	public void play (){		
 		System.out.println("\nWelcome to Battle Ship Game!\n"
-				+ "You have " + givenShots + " to destroy your enemie's ships.\n");
+				+ "You have " + givenShots + " attempts" + " to destroy your enemie's ships.\n");
 		battleShipGame.printBoard();
 		
 		// start game:	
 		// for loop starts with number of given shots:
 		for (int shots = 0; shots <= givenShots; shots++){
+			SeaFieldShips seaFieldShips = new SeaFieldShips();
 			int [] addr = new int [2];
 			// ask user for input (get user input method)
-//			addr = getUserInput();
+			System.out.println("Please enter coordinates:");
+			addr = seaFieldShips.getUserInput();
 			// check FieldCell value
 			int cellValue = battleShipGame.battleField[addr[0]][addr[1]].getCellState();
 			// - if 0 or 3 - setCellState (-1) : "Your shot was in water."
