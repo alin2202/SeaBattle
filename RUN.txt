@@ -3,6 +3,267 @@ Welcome to the Game!
 What would you like to do? 
  1. Play Guess or Sink 
  2. Play Memory Match
+ 3. Play Battle Ship
+ q. Quit 
+Enter your selection
+3
+
+Welcome to Battle Ship Game!
+You have 9 attempts to destroy your enemie's ships.
+
+	 0	 1	 2	 3	 4
+0	 ~	 ~	 ~	 ~	 ~
+1	 ~	 ~	 ~	 ~	 ~
+2	 ~	 ~	 ~	 ~	 ~
+3	 ~	 ~	 ~	 ~	 ~
+4	 ~	 ~	 ~	 ~	 ~
+
+
+Please enter your shot coordinates:
+
+4 3
+
+Your shot was in water.
+shots left: 8
+
+	 0	 1	 2	 3	 4
+0	 ~	 ~	 ~	 ~	 ~
+1	 ~	 ~	 ~	 ~	 ~
+2	 ~	 ~	 ~	 ~	 ~
+3	 ~	 ~	 ~	 ~	 ~
+4	 ~	 ~	 ~	 o	 ~
+
+
+Please enter your shot coordinates:
+
+4 0
+
+You aimed!
+shots left: 7
+
+	 0	 1	 2	 3	 4
+0	 ~	 ~	 ~	 ~	 ~
+1	 ~	 ~	 ~	 ~	 ~
+2	 ~	 ~	 ~	 ~	 ~
+3	 ~	 ~	 ~	 ~	 ~
+4	 X	 ~	 ~	 o	 ~
+
+
+Please enter your shot coordinates:
+
+1 1
+
+You aimed!
+shots left: 6
+
+	 0	 1	 2	 3	 4
+0	 ~	 ~	 ~	 ~	 ~
+1	 ~	 *	 ~	 ~	 ~
+2	 ~	 ~	 ~	 ~	 ~
+3	 ~	 ~	 ~	 ~	 ~
+4	 X	 ~	 ~	 o	 ~
+
+
+Please enter your shot coordinates:
+
+2 1
+
+You aimed!
+shots left: 5
+
+	 0	 1	 2	 3	 4
+0	 ~	 ~	 ~	 ~	 ~
+1	 ~	 *	 ~	 ~	 ~
+2	 ~	 *	 ~	 ~	 ~
+3	 ~	 ~	 ~	 ~	 ~
+4	 X	 ~	 ~	 o	 ~
+
+
+Please enter your shot coordinates:
+
+3 1
+
+You aimed!
+shots left: 4
+
+	 0	 1	 2	 3	 4
+0	 ~	 ~	 ~	 ~	 ~
+1	 ~	 X	 ~	 ~	 ~
+2	 ~	 X	 ~	 ~	 ~
+3	 ~	 X	 ~	 ~	 ~
+4	 X	 ~	 ~	 o	 ~
+
+
+Please enter your shot coordinates:
+
+1 4
+
+You aimed!
+shots left: 3
+
+	 0	 1	 2	 3	 4
+0	 ~	 ~	 ~	 ~	 ~
+1	 ~	 X	 ~	 ~	 *
+2	 ~	 X	 ~	 ~	 ~
+3	 ~	 X	 ~	 ~	 ~
+4	 X	 ~	 ~	 o	 ~
+
+
+Please enter your shot coordinates:
+
+2 4
+
+You aimed!
+
+Congratulations! You won the game.
+	 0	 1	 2	 3	 4
+0	 ~	 ~	 ~	 ~	 ~
+1	 ~	 X	 ~	 ~	 X
+2	 ~	 X	 ~	 ~	 X
+3	 ~	 X	 ~	 ~	 ~
+4	 X	 ~	 ~	 o	 ~
+
+What would you like to do? 
+ 1. Play Guess or Sink 
+ 2. Play Memory Match
+ 3. Play Battle Ship
+ q. Quit 
+Enter your selection
+q
+Thanks for playing!
+Your score is 1 out of 1.
+GoodBye!
+
+
+//Battle Ship User looses scenario
+Welcome to the Game!
+
+What would you like to do? 
+ 1. Play Guess or Sink 
+ 2. Play Memory Match
+ 3. Play Battle Ship
+ q. Quit 
+Enter your selection
+3
+
+Welcome to Battle Ship Game!
+You have 6 attempts to destroy your enemie's ships.
+
+	 0	 1	 2	 3
+0	 ~	 ~	 ~	 ~
+1	 ~	 ~	 ~	 ~
+2	 ~	 ~	 ~	 ~
+3	 ~	 ~	 ~	 ~
+
+
+Please enter your shot coordinates:
+
+0 0
+
+Your shot was in water.
+shots left: 5
+
+	 0	 1	 2	 3
+0	 o	 ~	 ~	 ~
+1	 ~	 ~	 ~	 ~
+2	 ~	 ~	 ~	 ~
+3	 ~	 ~	 ~	 ~
+
+
+Please enter your shot coordinates:
+
+0 0
+
+You already shot here...
+shots left: 4
+
+	 0	 1	 2	 3
+0	 o	 ~	 ~	 ~
+1	 ~	 ~	 ~	 ~
+2	 ~	 ~	 ~	 ~
+3	 ~	 ~	 ~	 ~
+
+
+Please enter your shot coordinates:
+
+sd q
+
+Wrong arguments.
+Please enter integers only:
+
+1 2
+
+You aimed!
+shots left: 3
+
+	 0	 1	 2	 3
+0	 o	 ~	 ~	 ~
+1	 ~	 ~	 X	 ~
+2	 ~	 ~	 ~	 ~
+3	 ~	 ~	 ~	 ~
+
+
+Please enter your shot coordinates:
+
+3 2
+
+Your shot was in water.
+shots left: 2
+
+	 0	 1	 2	 3
+0	 o	 ~	 ~	 ~
+1	 ~	 ~	 X	 ~
+2	 ~	 ~	 ~	 ~
+3	 ~	 ~	 o	 ~
+
+
+Please enter your shot coordinates:
+
+2 2
+
+Your shot was in water.
+shots left: 1
+
+	 0	 1	 2	 3
+0	 o	 ~	 ~	 ~
+1	 ~	 ~	 X	 ~
+2	 ~	 ~	 o	 ~
+3	 ~	 ~	 o	 ~
+
+
+Please enter your shot coordinates:
+
+2 3
+
+You aimed!
+shots left: 0
+
+	 0	 1	 2	 3
+0	 o	 ~	 ~	 ~
+1	 ~	 ~	 X	 ~
+2	 ~	 ~	 o	 *
+3	 ~	 ~	 o	 ~
+
+You have used all shots. Game Over!
+
+
+What would you like to do? 
+ 1. Play Guess or Sink 
+ 2. Play Memory Match
+ 3. Play Battle Ship
+ q. Quit 
+Enter your selection
+q
+Thanks for playing!
+Your score is 0 out of 1.
+GoodBye!
+
+// other Games
+Welcome to the Game!
+
+What would you like to do? 
+ 1. Play Guess or Sink 
+ 2. Play Memory Match
  q. Quit 
 Enter your selection
 2

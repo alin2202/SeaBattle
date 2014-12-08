@@ -2,46 +2,54 @@ import java.util.Scanner;
 
 public class BattleShip {
 
-	private int MAXFIELDSIZE = 15; //
-	private int MINFIELDSIZE = 5;  //
+	private int MAXFIELDSIZE = 15; 
+	private int MINFIELDSIZE = 5;  
 	private int givenShots;
 	private int fieldSize;
 	private FieldCell[][] arrayOfShips;
 	private boolean winStatus = false;
+	private int numberOfShips;
 	SeaFieldShips battleShipGame;
+	
 
 	public BattleShip() {
-		this.fieldSize = CommonFunctions.randomInt(MINFIELDSIZE, MAXFIELDSIZE);
+		this.fieldSize = 5; // CommonFunctions.randomInt(MINFIELDSIZE, MAXFIELDSIZE);
 		this.battleShipGame = new SeaFieldShips(fieldSize);
 		this.battleShipGame.placeShips();
 		this.arrayOfShips = battleShipGame.getShipsArray();
 		this.givenShots = (battleShipGame
-				.getNumberOfShipCells(arrayOfShips) + 3);
+				.getNumberOfShipCells(arrayOfShips) + 8);
+		this.numberOfShips = this.battleShipGame.getNumberOfShips();
 	}
 
+	
+	
 	public void play() {
 		System.out.println("\nWelcome to Battle Ship Game!\n" + "You have "
 				+ this.givenShots + " attempts"
 				+ " to destroy your enemie's ships.\n");
+		
 		this.battleShipGame.printBoard();
+		
 		// start game:
 		// for loop starts with number of given shots:
 		int remainingShots = this.givenShots;
 		for (int shots = 0; shots < this.givenShots; shots++) {
 			int[] addr = new int[2];
 			// ask user for input (get user input method)
-			System.out.println("\n\nPlease enter your shot coordinates:\n");
+			System.out.println("\n\n");
+			this.numberOfShips = this.battleShipGame.getNumberOfShips(); // get Updated Number Of ships
+			System.out.println("There are more ships to destroy! Amount of remaining ships is: " + this.numberOfShips);
+			System.out.println("Please enter your shot coordinates:\n");
 			remainingShots = remainingShots - 1;
 			addr = getUserInput();
 			// check FieldCell value
 			int cellValue = this.battleShipGame.battleField[addr[0]][addr[1]].getCellState();
 			// - if 0 or 3 - setCellState (-1) : "Your shot was in water."
 			if (cellValue == Constants.shipCell) {
-				System.out.println("\nYou aimed!");
+				System.out.println("\nYou aimed!");		
 				this.battleShipGame.battleField[addr[0]][addr[1]].setCellState(Constants.shotAimed);
-				this.battleShipGame.printBoard();
 				this.battleShipGame.revealSunkShips();
-				this.battleShipGame.printBoard();
 				if (battleShipGame.checkIfAllShipsSunk()){
 					System.out.println("\nCongratulations! You won the game.");
 					this.battleShipGame.printBoard();

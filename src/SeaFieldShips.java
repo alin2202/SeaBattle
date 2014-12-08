@@ -22,7 +22,12 @@ public class SeaFieldShips {
 		this.battleField = new FieldCell[fieldSize][fieldSize];
 
 	}
-
+	
+	//getting number of Ships
+	public int getNumberOfShips(){
+		return numOfhips;
+	}
+	
 	// method that will determine how many
 	// and what size ships to draw
 	private int setNumOfShips(int fieldSize) {
@@ -198,6 +203,8 @@ public class SeaFieldShips {
 				for (int cell = 0; cell < this.shipsArray[ship].length; cell++){
 					this.shipsArray[ship][cell].setCellState(Constants.sunkShip);
 				}
+				//decrease Number of ships
+				numOfhips--;
 			}
 		}
 	}
@@ -238,7 +245,7 @@ public class SeaFieldShips {
 		}
 	}
 
-	// method to be called before printing final (result) board with Everything
+	// method to be called before printing final (result) board with ship placement
 	public void reveal() {
 		for (int i = 0; i < fieldSize; i++) {
 			for (int a = 0; a < fieldSize; a++) {
