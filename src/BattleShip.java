@@ -11,15 +11,16 @@ public class BattleShip {
 	private int numberOfShips;
 	SeaFieldShips battleShipGame;
 	
+	
 
 	public BattleShip() {
 		this.fieldSize = CommonFunctions.randomInt(MINFIELDSIZE, MAXFIELDSIZE);
 		this.battleShipGame = new SeaFieldShips(fieldSize);
 		this.battleShipGame.placeShips();
 		this.arrayOfShips = battleShipGame.getShipsArray();
-		this.givenShots = (battleShipGame
-				.getNumberOfShipCells(arrayOfShips) + 8);
 		this.numberOfShips = this.battleShipGame.getNumberOfShips();
+		this.givenShots = (int) (battleShipGame.getNumberOfShipCells(arrayOfShips) * (135.0f/100.0f)  
+				+ battleShipGame.getNumberOfShipCells(arrayOfShips));
 	}
 
 	
