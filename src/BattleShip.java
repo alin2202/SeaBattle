@@ -32,6 +32,7 @@ public class BattleShip {
 		
 		this.battleShipGame.printBoard() ;
 		
+		
 		// start game:
 		// for loop starts with number of given shots:
 		int remainingShots = this.givenShots;
