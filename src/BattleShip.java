@@ -13,7 +13,7 @@ public class BattleShip {
 	
 
 	public BattleShip() {
-		this.fieldSize = 5; // CommonFunctions.randomInt(MINFIELDSIZE, MAXFIELDSIZE);
+		this.fieldSize = CommonFunctions.randomInt(MINFIELDSIZE, MAXFIELDSIZE);
 		this.battleShipGame = new SeaFieldShips(fieldSize);
 		this.battleShipGame.placeShips();
 		this.arrayOfShips = battleShipGame.getShipsArray();

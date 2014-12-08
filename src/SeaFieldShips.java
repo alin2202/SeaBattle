@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class SeaFieldShips {
 
 	// number of ships to draw
@@ -253,6 +251,7 @@ public class SeaFieldShips {
 					battleField[i][a].setCellState(Constants.reveal);
 			}
 		}
+		printBoard();
 	}
 	
 }
