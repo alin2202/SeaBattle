@@ -9,134 +9,201 @@ Enter your selection
 3
 
 Welcome to Battle Ship Game!
-You have 9 attempts to destroy your enemie's ships.
+You have 11 attempts to destroy your enemie's ships.
 
-	 0	 1	 2	 3	 4
-0	 ~	 ~	 ~	 ~	 ~
-1	 ~	 ~	 ~	 ~	 ~
-2	 ~	 ~	 ~	 ~	 ~
-3	 ~	 ~	 ~	 ~	 ~
-4	 ~	 ~	 ~	 ~	 ~
+	 0	 1	 2	 3
+0	 ~	 ~	 ~	 ~
+1	 ~	 ~	 ~	 ~
+2	 ~	 ~	 ~	 ~
+3	 ~	 ~	 ~	 ~
 
 
+
+There are more ships to destroy! Amount of remaining ships is: 2
 Please enter your shot coordinates:
 
-4 3
+2 3
 
 Your shot was in water.
-shots left: 8
+shots left: 10
 
-	 0	 1	 2	 3	 4
-0	 ~	 ~	 ~	 ~	 ~
-1	 ~	 ~	 ~	 ~	 ~
-2	 ~	 ~	 ~	 ~	 ~
-3	 ~	 ~	 ~	 ~	 ~
-4	 ~	 ~	 ~	 o	 ~
+	 0	 1	 2	 3
+0	 ~	 ~	 ~	 ~
+1	 ~	 ~	 ~	 ~
+2	 ~	 ~	 ~	 o
+3	 ~	 ~	 ~	 ~
 
 
+
+There are more ships to destroy! Amount of remaining ships is: 2
 Please enter your shot coordinates:
 
-4 0
+2 0
 
-You aimed!
-shots left: 7
+Your shot was in water.
+shots left: 9
 
-	 0	 1	 2	 3	 4
-0	 ~	 ~	 ~	 ~	 ~
-1	 ~	 ~	 ~	 ~	 ~
-2	 ~	 ~	 ~	 ~	 ~
-3	 ~	 ~	 ~	 ~	 ~
-4	 X	 ~	 ~	 o	 ~
+	 0	 1	 2	 3
+0	 ~	 ~	 ~	 ~
+1	 ~	 ~	 ~	 ~
+2	 o	 ~	 ~	 o
+3	 ~	 ~	 ~	 ~
 
 
+
+There are more ships to destroy! Amount of remaining ships is: 2
 Please enter your shot coordinates:
 
 1 1
 
-You aimed!
-shots left: 6
+Your shot was in water.
+shots left: 8
 
-	 0	 1	 2	 3	 4
-0	 ~	 ~	 ~	 ~	 ~
-1	 ~	 *	 ~	 ~	 ~
-2	 ~	 ~	 ~	 ~	 ~
-3	 ~	 ~	 ~	 ~	 ~
-4	 X	 ~	 ~	 o	 ~
+	 0	 1	 2	 3
+0	 ~	 ~	 ~	 ~
+1	 ~	 o	 ~	 ~
+2	 o	 ~	 ~	 o
+3	 ~	 ~	 ~	 ~
 
 
+
+There are more ships to destroy! Amount of remaining ships is: 2
 Please enter your shot coordinates:
 
-2 1
+2 2
 
-You aimed!
-shots left: 5
+Your shot was in water.
+shots left: 7
 
-	 0	 1	 2	 3	 4
-0	 ~	 ~	 ~	 ~	 ~
-1	 ~	 *	 ~	 ~	 ~
-2	 ~	 *	 ~	 ~	 ~
-3	 ~	 ~	 ~	 ~	 ~
-4	 X	 ~	 ~	 o	 ~
+	 0	 1	 2	 3
+0	 ~	 ~	 ~	 ~
+1	 ~	 o	 ~	 ~
+2	 o	 ~	 o	 o
+3	 ~	 ~	 ~	 ~
 
 
+
+There are more ships to destroy! Amount of remaining ships is: 2
+Please enter your shot coordinates:
+
+0 2
+
+Your shot was in water.
+shots left: 6
+
+	 0	 1	 2	 3
+0	 ~	 ~	 o	 ~
+1	 ~	 o	 ~	 ~
+2	 o	 ~	 o	 o
+3	 ~	 ~	 ~	 ~
+
+
+
+There are more ships to destroy! Amount of remaining ships is: 2
 Please enter your shot coordinates:
 
 3 1
 
-You aimed!
+Your shot was in water.
+shots left: 5
+
+	 0	 1	 2	 3
+0	 ~	 ~	 o	 ~
+1	 ~	 o	 ~	 ~
+2	 o	 ~	 o	 o
+3	 ~	 o	 ~	 ~
+
+
+
+There are more ships to destroy! Amount of remaining ships is: 2
+Please enter your shot coordinates:
+
+1 0
+
+Your shot was in water.
 shots left: 4
 
-	 0	 1	 2	 3	 4
-0	 ~	 ~	 ~	 ~	 ~
-1	 ~	 X	 ~	 ~	 ~
-2	 ~	 X	 ~	 ~	 ~
-3	 ~	 X	 ~	 ~	 ~
-4	 X	 ~	 ~	 o	 ~
+	 0	 1	 2	 3
+0	 ~	 ~	 o	 ~
+1	 o	 o	 ~	 ~
+2	 o	 ~	 o	 o
+3	 ~	 o	 ~	 ~
 
 
+
+There are more ships to destroy! Amount of remaining ships is: 2
 Please enter your shot coordinates:
 
-1 4
+0 1
 
-You aimed!
+Your shot was in water.
 shots left: 3
 
-	 0	 1	 2	 3	 4
-0	 ~	 ~	 ~	 ~	 ~
-1	 ~	 X	 ~	 ~	 *
-2	 ~	 X	 ~	 ~	 ~
-3	 ~	 X	 ~	 ~	 ~
-4	 X	 ~	 ~	 o	 ~
+	 0	 1	 2	 3
+0	 ~	 o	 o	 ~
+1	 o	 o	 ~	 ~
+2	 o	 ~	 o	 o
+3	 ~	 o	 ~	 ~
 
 
+
+There are more ships to destroy! Amount of remaining ships is: 2
 Please enter your shot coordinates:
 
-2 4
+1 2
 
 You aimed!
+shots left: 2
 
-Congratulations! You won the game.
-	 0	 1	 2	 3	 4
-0	 ~	 ~	 ~	 ~	 ~
-1	 ~	 X	 ~	 ~	 X
-2	 ~	 X	 ~	 ~	 X
-3	 ~	 X	 ~	 ~	 ~
-4	 X	 ~	 ~	 o	 ~
-
-What would you like to do? 
- 1. Play Guess or Sink 
- 2. Play Memory Match
- 3. Play Battle Ship
- q. Quit 
-Enter your selection
-q
-Thanks for playing!
-Your score is 1 out of 1.
-GoodBye!
+	 0	 1	 2	 3
+0	 ~	 o	 o	 ~
+1	 o	 o	 *	 ~
+2	 o	 ~	 o	 o
+3	 ~	 o	 ~	 ~
 
 
-//Battle Ship User looses scenario
-Welcome to the Game!
+
+There are more ships to destroy! Amount of remaining ships is: 2
+Please enter your shot coordinates:
+
+1 3
+
+You aimed!
+shots left: 1
+
+	 0	 1	 2	 3
+0	 ~	 o	 o	 ~
+1	 o	 o	 X	 X
+2	 o	 ~	 o	 o
+3	 ~	 o	 ~	 ~
+
+
+
+There are more ships to destroy! Amount of remaining ships is: 1
+Please enter your shot coordinates:
+
+3 0
+
+Your shot was in water.
+shots left: 0
+
+	 0	 1	 2	 3
+0	 ~	 o	 o	 ~
+1	 o	 o	 X	 X
+2	 o	 ~	 o	 o
+3	 o	 o	 ~	 ~
+
+You have used all shots. Game Over!
+
+	 0	 1	 2	 3
+0	 []	 o	 o	 ~
+1	 o	 o	 X	 X
+2	 o	 ~	 o	 o
+3	 o	 o	 ~	 ~
+
+
+
+//Battle Ship User wins scenario
 
 What would you like to do? 
  1. Play Guess or Sink 
@@ -147,7 +214,7 @@ Enter your selection
 3
 
 Welcome to Battle Ship Game!
-You have 6 attempts to destroy your enemie's ships.
+You have 11 attempts to destroy your enemie's ships.
 
 	 0	 1	 2	 3
 0	 ~	 ~	 ~	 ~
@@ -156,110 +223,55 @@ You have 6 attempts to destroy your enemie's ships.
 3	 ~	 ~	 ~	 ~
 
 
+
+There are more ships to destroy! Amount of remaining ships is: 2
 Please enter your shot coordinates:
 
-0 0
-
-Your shot was in water.
-shots left: 5
-
-	 0	 1	 2	 3
-0	 o	 ~	 ~	 ~
-1	 ~	 ~	 ~	 ~
-2	 ~	 ~	 ~	 ~
-3	 ~	 ~	 ~	 ~
-
-
-Please enter your shot coordinates:
-
-0 0
-
-You already shot here...
-shots left: 4
-
-	 0	 1	 2	 3
-0	 o	 ~	 ~	 ~
-1	 ~	 ~	 ~	 ~
-2	 ~	 ~	 ~	 ~
-3	 ~	 ~	 ~	 ~
-
-
-Please enter your shot coordinates:
-
-sd q
-
-Wrong arguments.
-Please enter integers only:
-
-1 2
+2 0
 
 You aimed!
-shots left: 3
+shots left: 10
 
 	 0	 1	 2	 3
-0	 o	 ~	 ~	 ~
-1	 ~	 ~	 X	 ~
-2	 ~	 ~	 ~	 ~
+0	 ~	 ~	 ~	 ~
+1	 ~	 ~	 ~	 ~
+2	 X	 ~	 ~	 ~
 3	 ~	 ~	 ~	 ~
 
 
-Please enter your shot coordinates:
 
-3 2
-
-Your shot was in water.
-shots left: 2
-
-	 0	 1	 2	 3
-0	 o	 ~	 ~	 ~
-1	 ~	 ~	 X	 ~
-2	 ~	 ~	 ~	 ~
-3	 ~	 ~	 o	 ~
-
-
+There are more ships to destroy! Amount of remaining ships is: 1
 Please enter your shot coordinates:
 
 2 2
 
-Your shot was in water.
-shots left: 1
+You aimed!
+shots left: 9
 
 	 0	 1	 2	 3
-0	 o	 ~	 ~	 ~
-1	 ~	 ~	 X	 ~
-2	 ~	 ~	 o	 ~
-3	 ~	 ~	 o	 ~
+0	 ~	 ~	 ~	 ~
+1	 ~	 ~	 ~	 ~
+2	 X	 ~	 *	 ~
+3	 ~	 ~	 ~	 ~
 
 
+
+There are more ships to destroy! Amount of remaining ships is: 1
 Please enter your shot coordinates:
 
-2 3
+3 2
 
 You aimed!
-shots left: 0
 
+Congratulations! You won the game.
 	 0	 1	 2	 3
-0	 o	 ~	 ~	 ~
-1	 ~	 ~	 X	 ~
-2	 ~	 ~	 o	 *
-3	 ~	 ~	 o	 ~
+0	 ~	 ~	 ~	 ~
+1	 ~	 ~	 ~	 ~
+2	 X	 ~	 X	 ~
+3	 ~	 ~	 X	 ~
 
-You have used all shots. Game Over!
-
-
-What would you like to do? 
- 1. Play Guess or Sink 
- 2. Play Memory Match
- 3. Play Battle Ship
- q. Quit 
-Enter your selection
-q
-Thanks for playing!
-Your score is 0 out of 1.
-GoodBye!
 
 // other Games
-Welcome to the Game!
 
 What would you like to do? 
  1. Play Guess or Sink 
@@ -570,7 +582,7 @@ What would you like to do?
 Enter your selection
 q
 Thanks for playing!
-Your score is 2 out of 3.
+Your score is 3 out of 5.
 GoodBye!
 
 ------- TEST CASE 2: Invalid inputs -------
