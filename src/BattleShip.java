@@ -30,7 +30,7 @@ public class BattleShip {
 				+ this.givenShots + " attempts"
 				+ " to destroy your enemie's ships.\n");
 		
-		this.battleShipGame.printBoard();
+		this.battleShipGame.printBoard() ;
 		
 		// start game:
 		// for loop starts with number of given shots:
