@@ -9,6 +9,10 @@ public class Game {
 		int numberOfGames = 0;
 
 		// print welcome message check if user wants to play
+		
+		//test
+		Constants.printTestStatement();
+		
 		System.out.println("Welcome to the Game!");
 		while (true) {
 			System.out.println("\nWhat would you like to do? "
