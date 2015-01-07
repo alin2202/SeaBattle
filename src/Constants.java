@@ -9,5 +9,9 @@ public class Constants {
 	public static int reservedCell = 3;
 	public static int reveal = 4;
 	public static int sunkShip = 5;
+	
+	public static void printTestStatement(){
+		System.out.println("This is s test print statement");
+	}
 
 }
